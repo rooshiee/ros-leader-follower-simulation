@@ -63,6 +63,15 @@ com760cw1_B01009366/
 - Multi-robot coordination
 - Reinforcement learning navigation
 
+## Demonstration
+
+The following video demonstrates the autonomous leader–follower behaviour implemented using ROS and turtlesim.
+
+
+https://github.com/user-attachments/assets/865d522c-b252-4020-876d-1be15e37f1a8
+
+
+
 ## Project Background
 
 This project was completed as part of the Robotics & AI module during the MSc Artificial Intelligence programme at Ulster University.

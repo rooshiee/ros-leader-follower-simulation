@@ -1,0 +1,38 @@
+<launch>
+
+  <!-- TurtleSim -->
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim"/>
+
+  <!-- Your scripts -->
+  <node pkg="com760cw1_B01009366" type="set_random_bg.py" name="bg_setter" output="screen"/>
+  <node pkg="com760cw1_B01009366" type="spawn_turtles.py" name="spawner" output="screen"/>
+  <node pkg="com760cw1_B01009366" type="move_leader.py" name="leader_mover" output="screen"/>
+
+  <!--   (SERVICE SERVER) -->
+  <node pkg="com760cw1_B01009366" type="go_to_target_server.py" name="go_to_target_server" output="screen"/>
+
+  <!-- TF Broadcasters -->
+  <node pkg="com760cw1_B01009366" type="turtle_tf2_broadcaster.py" name="bcast_leader">
+    <param name="turtle" value="B01009366Leader"/>
+  </node>
+
+  <node pkg="com760cw1_B01009366" type="turtle_tf2_broadcaster.py" name="bcast_A">
+    <param name="turtle" value="B01009366FollowerA"/>
+  </node>
+
+  <node pkg="com760cw1_B01009366" type="turtle_tf2_broadcaster.py" name="bcast_B">
+    <param name="turtle" value="B01009366FollowerB"/>
+  </node>
+
+  <!-- TF Listeners -->
+  <node pkg="com760cw1_B01009366" type="turtle_tf2_listener.py" name="followA">
+    <param name="from" value="B01009366FollowerA"/>
+    <param name="to" value="B01009366Leader"/>
+  </node>
+
+  <node pkg="com760cw1_B01009366" type="turtle_tf2_listener.py" name="followB">
+    <param name="from" value="B01009366FollowerB"/>
+    <param name="to" value="B01009366Leader"/>
+  </node>
+
+</launch>
